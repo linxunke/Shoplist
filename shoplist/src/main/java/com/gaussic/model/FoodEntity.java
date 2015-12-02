@@ -13,9 +13,10 @@ public class FoodEntity {
     private String foodName;
     private Integer foodNo;
     private Date foodExpireDate;
+    private UserEntity userByUserid;
 
     @Id
-    @Column(name = "foodId", nullable = false)
+    @Column(name = "foodId", nullable = false, insertable = true, updatable = true)
     public int getFoodId() {
         return foodId;
     }
@@ -25,7 +26,7 @@ public class FoodEntity {
     }
 
     @Basic
-    @Column(name = "foodName", nullable = true, length = 255)
+    @Column(name = "foodName", nullable = true, insertable = true, updatable = true, length = 45)
     public String getFoodName() {
         return foodName;
     }
@@ -35,7 +36,7 @@ public class FoodEntity {
     }
 
     @Basic
-    @Column(name = "foodNo", nullable = true)
+    @Column(name = "foodNo",nullable = true, insertable = true, updatable = true, length = 45)
     public Integer getFoodNo() {
         return foodNo;
     }
@@ -45,7 +46,7 @@ public class FoodEntity {
     }
 
     @Basic
-    @Column(name = "foodExpireDate", nullable = true)
+    @Column(name = "foodExpireDate",  nullable = true, insertable = true, updatable = true)
     public Date getFoodExpireDate() {
         return foodExpireDate;
     }
@@ -77,5 +78,14 @@ public class FoodEntity {
         result = 31 * result + (foodNo != null ? foodNo.hashCode() : 0);
         result = 31 * result + (foodExpireDate != null ? foodExpireDate.hashCode() : 0);
         return result;
+    }
+    @ManyToOne
+    @JoinColumn(name = "userId", referencedColumnName = "id", nullable = false)
+    public UserEntity getUserByUserid() {
+        return userByUserid;
+    }
+
+    public void setUserByUserid(UserEntity userByUserid) {
+        this.userByUserid = userByUserid;
     }
 }

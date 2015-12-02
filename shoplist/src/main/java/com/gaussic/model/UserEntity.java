@@ -1,6 +1,7 @@
 package com.gaussic.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * Created by DELL on 2015/11/30.
@@ -12,6 +13,7 @@ public class UserEntity {
     private String firstName;
     private String lastName;
     private String password;
+    private Collection<FoodEntity>foodsById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -75,5 +77,13 @@ public class UserEntity {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
+    }
+    @OneToMany(mappedBy = "userByUserid")
+    public Collection<FoodEntity> getFoodsById() {
+        return foodsById;
+    }
+
+    public void setFoodsById(Collection<FoodEntity> foodsById) {
+        this.foodsById = foodsById;
     }
 }
