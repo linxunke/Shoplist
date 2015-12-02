@@ -13,7 +13,6 @@ public class FoodEntity {
     private String foodName;
     private Integer foodNo;
     private Date foodExpireDate;
-    private UserEntity userByUserid;
 
     @Id
     @Column(name = "foodId", nullable = false, insertable = true, updatable = true)
@@ -79,13 +78,5 @@ public class FoodEntity {
         result = 31 * result + (foodExpireDate != null ? foodExpireDate.hashCode() : 0);
         return result;
     }
-    @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "id", nullable = false)
-    public UserEntity getUserByUserid() {
-        return userByUserid;
-    }
 
-    public void setUserByUserid(UserEntity userByUserid) {
-        this.userByUserid = userByUserid;
-    }
 }

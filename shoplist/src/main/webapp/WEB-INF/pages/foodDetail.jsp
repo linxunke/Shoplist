@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DELL
-  Date: 2015/11/30
-  Time: 17:36
-  To change this template use File | Settings | File Templates.
---%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>

@@ -13,10 +13,9 @@ public class UserEntity {
     private String firstName;
     private String lastName;
     private String password;
-    private Collection<FoodEntity>foodsById;
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "id", nullable = true)
     public int getId() {
         return id;
     }
@@ -78,12 +77,5 @@ public class UserEntity {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
-    @OneToMany(mappedBy = "userByUserid")
-    public Collection<FoodEntity> getFoodsById() {
-        return foodsById;
-    }
 
-    public void setFoodsById(Collection<FoodEntity> foodsById) {
-        this.foodsById = foodsById;
-    }
 }
