@@ -12,7 +12,6 @@ public class FoodEntity {
     private int foodId;
     private String foodName;
     private Integer foodNo;
-    private Date foodExpireDate;
 
     @Id
     @Column(name = "foodId", nullable = false, insertable = true, updatable = true)
@@ -44,16 +43,6 @@ public class FoodEntity {
         this.foodNo = foodNo;
     }
 
-    @Basic
-    @Column(name = "foodExpireDate",  nullable = true, insertable = true, updatable = true)
-    public Date getFoodExpireDate() {
-        return foodExpireDate;
-    }
-
-    public void setFoodExpireDate(Date foodExpireDate) {
-        this.foodExpireDate = foodExpireDate;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -64,8 +53,7 @@ public class FoodEntity {
         if (foodId != that.foodId) return false;
         if (foodName != null ? !foodName.equals(that.foodName) : that.foodName != null) return false;
         if (foodNo != null ? !foodNo.equals(that.foodNo) : that.foodNo != null) return false;
-        if (foodExpireDate != null ? !foodExpireDate.equals(that.foodExpireDate) : that.foodExpireDate != null)
-            return false;
+
 
         return true;
     }
@@ -75,7 +63,6 @@ public class FoodEntity {
         int result = foodId;
         result = 31 * result + (foodName != null ? foodName.hashCode() : 0);
         result = 31 * result + (foodNo != null ? foodNo.hashCode() : 0);
-        result = 31 * result + (foodExpireDate != null ? foodExpireDate.hashCode() : 0);
         return result;
     }
 

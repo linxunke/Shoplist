@@ -16,10 +16,12 @@ public interface UserRepository extends JpaRepository<FoodEntity, Integer> {
     @Transactional // 说明该方法是事务性操作
     // 定义查询
     // @Param注解用于提取参数
-    @Query("update FoodEntity us set us.foodName=:qFoodName, us.foodNo=:qFoodNo, us.foodExpireDate=:qFoodExpireDate where us.foodId=:qFoodId")
-    public void updateFood(@Param("qFoodName") String foodName,
+    @Query("update FoodEntity us set us.foodName=:qFoodName, us.foodNo=:qFoodNo where us.foodId=:qFoodId")
+    public void updateFood(
+
+                           @Param("qFoodName") String foodName,
                            @Param("qFoodNo") Integer foodNo,
-                           @Param("qFoodExpireDate") Date foodExpireDate,
                            @Param("qFoodId") Integer foodId);
 
 }
+

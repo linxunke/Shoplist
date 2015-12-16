@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: DELL
-  Date: 2015/11/30
-  Time: 18:00
-  To change this template use File | Settings | File Templates.
---%>
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -41,13 +36,8 @@
             <input type="text" class="form-control" id="foodNo" name="foodNo" placeholder="Enter FoodNo:"
                    value="${food.foodNo}"/>
         </div>
-        <div class="form-group">
-            <label for="foodExpireDate">FoodExpireDate:</label>
-            <input type="text" class="form-control" id="foodExpireDate" name="foodExpireDate" placeholder="Enter FoodExpireDate:"
-                   value="${food.foodExpireDate}"/>
-        </div>
         <!-- 把 id 一并写入 userP 中 -->
-        <input type="hidden" id="foodid" name="foodid" value="${food.foodId}"/>
+        <input type="hidden" id="foodId" name="foodId" value="${food.foodId}"/>
 
         <div class="form-group">
             <button type="submit" class="btn btn-sm btn-success">Submit</button>

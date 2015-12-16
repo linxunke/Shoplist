@@ -78,7 +78,6 @@ public class MainController {
         userRepository.updateFood(
                 foodEntity.getFoodName(),
                 foodEntity.getFoodNo(),
-                foodEntity.getFoodExpireDate(),
                 foodEntity.getFoodId()
         );
         return "redirect:/shoplists";
